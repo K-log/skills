@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "k-log-skills",
+  "description": "Marketplace for K-log's agent skills.",
+  "owner": {
+    "name": "Noah Dommaschk Burwell",
+    "email": "25853855+K-log@users.noreply.github.com"
+  },
+  "plugins": [
+    {
+      "name": "skills",
+      "source": "./",
+      "description": "Noah Dommaschk Burwell's agent skills."
+    }
+  ]
+}
