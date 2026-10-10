@@ -19,6 +19,13 @@ As a Claude Code plugin:
 
 Pick one. Installing both gives you each skill twice.
 
+## Skills
+
+| Skill | What it does |
+|---|---|
+| `/reformat` | Re-presents your last response in a cleaner format. |
+| `/scaffold` | Walks you through installing [Ponytail](https://github.com/DietrichGebert/ponytail), [Matt Pocock's skills](https://github.com/mattpocock/skills), and/or [CodeGraph](https://github.com/colbymchenry/codegraph) into the current project, so everyone who clones it gets them. |
+
 ## Add a skill
 
 1. Create `skills/<name>/SKILL.md` with `name` and `description` frontmatter.
