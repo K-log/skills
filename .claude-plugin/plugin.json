@@ -8,7 +8,6 @@
   "repository": "https://github.com/K-log/skills",
   "license": "MIT",
   "skills": [
-    "./skills/example",
     "./skills/reformat",
     "./skills/scaffold"
   ]
