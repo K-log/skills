@@ -9,6 +9,7 @@
   "license": "MIT",
   "skills": [
     "./skills/example",
-    "./skills/reformat"
+    "./skills/reformat",
+    "./skills/scaffold"
   ]
 }
