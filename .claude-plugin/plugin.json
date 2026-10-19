@@ -10,6 +10,9 @@
   "skills": [
     "./skills/reformat",
     "./skills/scaffold",
-    "./skills/spec-diff"
+    "./skills/spec-diff",
+    "./skills/implement-ticket",
+    "./skills/pr-comments",
+    "./skills/verify-branch"
   ]
 }
