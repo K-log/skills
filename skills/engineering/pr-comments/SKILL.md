@@ -1,7 +1,6 @@
 ---
 name: pr-comments
-description: Fix, reply to, and resolve every open PR review thread
-disable-model-invocation: true
+description: Fix and reply to every open PR review thread, and resolve the AI reviewer threads. Use when a PR has open review comments to address.
 ---
 1. List unresolved review threads (including Copilot's). `gh pr view` does not return threads; use GraphQL:
    ```sh
@@ -13,11 +12,11 @@ disable-model-invocation: true
 2. For each thread, make the code change.
 3. Run the affected tests and the lint/type check. If migrations or scripts changed, run `/verify-branch`.
 4. Commit with a message that references the thread topics, then push.
-5. Reply on each thread, then resolve the fixed ones:
+5. Reply on each thread with one comment: `Fixed by <solution>` or `Skipping due to <reason>`. Resolve fixed threads from AI reviewers (Copilot, Claude) only. Leave threads from people open:
    ```sh
    gh api graphql -F id=<thread id> -F body='<reply>' -f query='mutation($id:ID!,$body:String!){addPullRequestReviewThreadReply(input:{pullRequestReviewThreadId:$id,body:$body}){comment{url}}}'
    gh api graphql -F id=<thread id> -f query='mutation($id:ID!){resolveReviewThread(input:{threadId:$id}){thread{isResolved}}}'
    ```
-   Done when every thread is either replied to with what changed plus the commit SHA and resolved, or replied to with the locked decision it conflicts with and left open.
+   Done when every thread has a reply with what changed plus the commit SHA, or with the locked decision it conflicts with. Fixed AI threads are resolved.
 6. If scope changed, update the PR description and comment on the linked ticket in the ticket tracking system (for example Jira, through the Atlassian MCP) with what changed.
 7. Report: threads fixed / deferred (with decision ID) / tests run.

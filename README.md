@@ -19,8 +19,8 @@ Pi and other agents do not show the `nbd:` prefix.
 
 | Skill | What it does |
 |---|---|
-| `implement-ticket` | Implements a ticket. |
-| `pr-comments` | Addresses pull request review comments. |
+| `implement-ticket` | Builds a ticket end to end, from the blocker check to a PR with green checks. |
+| `pr-comments` | Addresses pull request review comments and resolves the AI reviewer threads. |
 | `scaffold` | Walks you through installing [Ponytail](https://github.com/DietrichGebert/ponytail), [Matt Pocock's skills](https://github.com/mattpocock/skills), and/or [CodeGraph](https://github.com/colbymchenry/codegraph) into the current project. |
 | `spec-diff` | Checks finished work against its ticket or spec. |
 | `verify-branch` | Runs a verification pass before you push a branch. |
