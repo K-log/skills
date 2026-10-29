@@ -14,9 +14,9 @@ Run each stage in its own subagent, so that details from one stage do not fill t
 |---|---|---|---|
 | Ticket review | 0, 1 | ticket ID, worktree path | `CONSTRAINTS.md` with risk areas and the plan, or the blocker or sanity-check report |
 | Build | 2, 3 | worktree path, `CONSTRAINTS.md` | commits with green checks |
-| Verify | 4, `/verify-branch` | worktree path, `CONSTRAINTS.md`, base branch | review fixes and the verify report |
+| Verify | 4 step 4, `/verify-branch` | worktree path, `CONSTRAINTS.md`, base branch | risk-area results and the verify report |
 
-The main session runs Setup, Phase 5, Phase 6, and Phase 7, and starts each subagent. Give each subagent only its input from the table. Do not pass on what other stages found. If a subagent reports a blocker or a failure it cannot fix, stop and report it.
+The main session runs Setup, Phase 4 steps 1-3, Phase 5, Phase 6, and Phase 7, and starts each subagent. The main session runs the review command itself, because the review command starts its own reviewer subagents. Give each subagent only its input from the table. Do not pass on what other stages found. If a subagent reports a blocker or a failure it cannot fix, stop and report it.
 
 ## Setup
 
