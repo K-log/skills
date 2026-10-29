@@ -15,13 +15,13 @@ If the arguments include `--report`, still do every step below, but print only t
 Work out both from the request and the repo. Ask only if you truly can't tell.
 
 **The spec.** A ticket ID, URL, file path, or pasted text.
-- Jira: fetch with the Atlassian tools. Read the description, acceptance criteria, sub-tasks, and comments (decisions often land in comments, not the description).
+- Ticket tracking system (for example Jira): fetch with the available tools, such as the Atlassian MCP for Jira. Read the description, acceptance criteria, sub-tasks, and comments (decisions often land in comments, not the description).
 - GitHub issue: `gh issue view <n> --comments`.
 - File in the repo: read the current version.
 - If the branch name or commit messages contain a ticket ID and the user named none, use it and say so.
 
 **The work.** Default to the current branch against its base.
-- Base: `git merge-base HEAD origin/main` (or the repo's main branch). The user may name a different base, commit, or range.
+- Base: `git merge-base HEAD origin/<default>`, where `<default>` is the repo's default branch (`git symbolic-ref --short refs/remotes/origin/HEAD`). The user may name a different base, commit, or range.
 - Committed: `git diff <base>...HEAD` and `git log <base>..HEAD --format='%h %ad %s' --date=iso`.
 - Uncommitted: `git diff HEAD` and `git status`. Include it, and mark which findings depend on it.
 
@@ -30,7 +30,7 @@ Work out both from the request and the repo. Ask only if you truly can't tell.
 This is what makes the check worth doing. Find the version the work was built against and compare it with the current one.
 
 - Work started: the date of the first commit after the base.
-- Jira: fetch the issue changelog (`expand=changelog`) and find edits to description, acceptance criteria, and other fields after the start date. Read comments posted after the start date.
+- Jira or another ticket tracking system: fetch the issue history (for Jira, the changelog with `expand=changelog`) and find edits to description, acceptance criteria, and other fields after the start date. Read comments posted after the start date.
 - GitHub issue: get edit history with `gh api graphql` on the issue's `userContentEdits`, and read comments after the start date.
 - Spec file in git: `git log -p --since=<start date> -- <path>`.
 

@@ -1,33 +1,34 @@
 # skills
 
-My agent skills.
+My agent skills. The Claude plugin is named `nbd`, so Claude shows each skill as `nbd:<skill>`.
 
 ## Install
 
-With the [skills CLI](https://github.com/vercel-labs/skills) (Claude Code, Codex, Cursor, and others):
+Pick one route for each agent. Two routes give each skill twice.
 
-```sh
-npx skills add K-log/skills -g
-```
+| Agent | Install | Update |
+|---|---|---|
+| Claude Code | `claude plugin marketplace add K-log/skills`, then `claude plugin install nbd@k-log-skills` | Set `autoUpdate: true` for `k-log-skills` in `~/.claude/settings.json`, or run `scripts/update.sh` |
+| Claude Desktop and claude.ai | Customize > Plugins > Add marketplace > `K-log/skills`, then install `nbd` | Click Update on the marketplace |
+| GitHub Copilot | `copilot plugin marketplace add K-log/skills`, then `copilot plugin install nbd@k-log-skills` | `scripts/update.sh` |
+| Pi and other agents | `npx skills@latest add K-log/skills -a pi` | `npx skills@latest update` |
 
-As a Claude Code plugin:
-
-```
-/plugin marketplace add K-log/skills
-/plugin install skills@k-log-skills
-```
-
-Pick one. Installing both gives you each skill twice.
+Pi and other agents do not show the `nbd:` prefix.
 
 ## Skills
 
 | Skill | What it does |
 |---|---|
-| `/reformat` | Re-presents your last response in a cleaner format. |
-| `/scaffold` | Walks you through installing [Ponytail](https://github.com/DietrichGebert/ponytail), [Matt Pocock's skills](https://github.com/mattpocock/skills), and/or [CodeGraph](https://github.com/colbymchenry/codegraph) into the current project, so everyone who clones it gets them. |
+| `implement-ticket` | Implements a ticket. |
+| `pr-comments` | Addresses pull request review comments. |
+| `scaffold` | Walks you through installing [Ponytail](https://github.com/DietrichGebert/ponytail), [Matt Pocock's skills](https://github.com/mattpocock/skills), and/or [CodeGraph](https://github.com/colbymchenry/codegraph) into the current project. |
+| `spec-diff` | Checks finished work against its ticket or spec. |
+| `verify-branch` | Runs a verification pass before you push a branch. |
+| `reformat` | Re-presents your last response in a cleaner format. |
+| `technical-writing` | Rules for clear, simple technical English. |
 
 ## Add a skill
 
-1. Create `skills/<name>/SKILL.md` with `name` and `description` frontmatter.
-2. Add `"./skills/<name>"` to the `skills` list in `.claude-plugin/plugin.json`.
-3. Push, then run `npx skills update` (or `/plugin update` for the plugin install).
+1. Create `skills/<category>/<name>/SKILL.md` with `name` and `description` frontmatter. The `name` must match the folder name.
+2. Add `"./skills/<category>/<name>"` to the `skills` list in `.claude-plugin/plugin.json`.
+3. Push, then run `scripts/update.sh`.

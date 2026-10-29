@@ -1,5 +1,5 @@
 {
-  "name": "skills",
+  "name": "nbd",
   "description": "Noah Dommaschk Burwell's agent skills.",
   "author": {
     "name": "Noah Dommaschk Burwell",
@@ -8,11 +8,12 @@
   "repository": "https://github.com/K-log/skills",
   "license": "MIT",
   "skills": [
-    "./skills/reformat",
-    "./skills/scaffold",
-    "./skills/spec-diff",
-    "./skills/implement-ticket",
-    "./skills/pr-comments",
-    "./skills/verify-branch"
+    "./skills/engineering/implement-ticket",
+    "./skills/engineering/pr-comments",
+    "./skills/engineering/scaffold",
+    "./skills/engineering/spec-diff",
+    "./skills/engineering/verify-branch",
+    "./skills/productivity/reformat",
+    "./skills/productivity/technical-writing"
   ]
 }

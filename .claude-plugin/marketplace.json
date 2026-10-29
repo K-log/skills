@@ -8,7 +8,7 @@
   },
   "plugins": [
     {
-      "name": "skills",
+      "name": "nbd",
       "source": "./",
       "description": "Noah Dommaschk Burwell's agent skills."
     }

@@ -19,5 +19,5 @@ disable-model-invocation: true
    gh api graphql -F id=<thread id> -f query='mutation($id:ID!){resolveReviewThread(input:{threadId:$id}){thread{isResolved}}}'
    ```
    Done when every thread is either replied to with what changed plus the commit SHA and resolved, or replied to with the locked decision it conflicts with and left open.
-6. If scope changed, update the PR description and comment on the linked Jira ticket (via the Atlassian MCP) with what changed.
+6. If scope changed, update the PR description and comment on the linked ticket in the ticket tracking system (for example Jira, through the Atlassian MCP) with what changed.
 7. Report: threads fixed / deferred (with decision ID) / tests run.
