@@ -15,7 +15,7 @@ Run the review command in the main session, because it starts its own reviewer s
 ## Setup
 
 1. Find the base branch. If the user named one, use it. Else use the repo's default branch: `git symbolic-ref --short refs/remotes/origin/HEAD`. If that fails, run `git remote set-head origin --auto` and try again.
-2. If you already work in a worktree for this ticket, use it. Else `git fetch origin <base>`, then create a worktree off `origin/<base>` on a branch named after the ticket (for example `PROJ-1234-short-title`). Do all work inside that worktree.
+2. If you already work in a worktree for this ticket, use it. Else `git fetch origin <base>`, then create a worktree off `origin/<base>` on a branch named after the ticket (for example `PROJ-1234-short-title`). Put the worktree at `<main clone path>.worktrees/<branch>`, next to the main clone, and replace each `/` in the branch name with `-`. If `~/dotfiles/claude/rules/projects.md` exists, follow its steps to find the project and make the worktree. Do all work inside that worktree.
 
 ## Phase 0: Can the ticket start?
 
